@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { ChatMessage } from '../types';
-import { matchFAQ } from '../utils/aiMatcher';
+import { processUserQuery } from '../utils/aiMatcher';
 
 interface AIChatContextType {
   messages: ChatMessage[];
@@ -29,19 +29,11 @@ export function AIChatProvider({ children }: { children: ReactNode }) {
     setMessages(prev => [...prev, userMessage]);
     setIsLoading(true);
 
-    // Simulate typing delay
-    await new Promise(resolve => setTimeout(resolve, 800));
+    // Simulate typing delay for natural feel
+    await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 400));
 
-    // Try local FAQ match first
-    const localResponse = matchFAQ(content);
-
-    let aiContent: string;
-    if (localResponse) {
-      aiContent = localResponse;
-    } else {
-      // Fallback eco-tourism response
-      aiContent = `Thanks for reaching out! I'd be happy to help you explore Nepal's beautiful trails and eco-tourism opportunities. You can ask me about:\n\n- Best hiking destinations\n- Trek recommendations based on difficulty\n- Donation and sponsorship programs\n- Environmental initiatives\n- Travel tips and gear recommendations\n\nWhat would you like to know more about?`;
-    }
+    // Process query with enhanced matcher
+    const aiContent = processUserQuery(content);
 
     const aiMessage: ChatMessage = {
       id: crypto.randomUUID(),

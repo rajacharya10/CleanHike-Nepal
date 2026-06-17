@@ -1,35 +1,39 @@
-import { aiFAQData } from '../data/aiFAQ';
+import { aiFAQData, keywordPatterns, matchFAQ } from '../data/aiFAQ';
 
-export function matchFAQ(query: string): string | null {
+export function processUserQuery(query: string): string {
   const normalizedQuery = query.toLowerCase().trim();
 
-  // Direct match
-  if (aiFAQData[normalizedQuery]) {
-    return aiFAQData[normalizedQuery];
+  // Try local FAQ match first
+  const localResponse = matchFAQ(query);
+  if (localResponse) {
+    return localResponse;
   }
 
-  // Keyword matching
-  const keywords: Record<string, string[]> = {
-    hello: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
-    about: ['about cleanhike', 'what is cleanhike', 'tell me about', 'cleanhike'],
-    'best hike': ['best hike', 'top treks', 'best treks', 'recommended', 'must do'],
-    'beginner hike': ['beginner', 'easy hike', 'novice', 'first time', 'starter', 'simple hike'],
-    'challenging hike': ['challenging', 'difficult', 'hard trek', 'adventure', 'extreme'],
-    donate: ['donate', 'donation', 'contribute', 'support', 'give'],
-    'best season': ['best season', 'when to visit', 'best time', 'season', 'weather'],
-    gear: ['gear', 'equipment', 'what to bring', 'packing', 'clothes'],
-    permit: ['permit', 'permits', 'TIMS', 'national park permit', 'documentation'],
-    'eco tourism': ['eco', 'sustainable', 'green tourism', 'responsible travel'],
-    environment: ['environment', 'conservation', 'nature', 'protect'],
-    sponsor: ['sponsor', 'partnership', 'partner', 'corporate'],
-    help: ['help', 'what can you do', 'how can you help'],
-  };
+  // Check for programming/technology questions
+  if (normalizedQuery.includes('javascript') || normalizedQuery.includes('react') || normalizedQuery.includes('coding') ||
+      normalizedQuery.includes('programming') || normalizedQuery.includes('code')) {
+    return `I can help with general programming questions! However, for specific technical support unrelated to our website:\n\n- **Email**: acharyaraj2005@gmail.com\n- **Contact Page**: Submit your query\n\nOur team will connect you with the right resources.`;
+  }
 
-  for (const [key, terms] of Object.entries(keywords)) {
-    if (terms.some(term => normalizedQuery.includes(term))) {
-      return aiFAQData[key] || null;
+  // Check for career/advice questions
+  if (normalizedQuery.includes('career') || normalizedQuery.includes('job') || normalizedQuery.includes('work')) {
+    return `For career or professional inquiries, I'd recommend reaching out to our team:\n\n- **Email**: acharyaraj2005@gmail.com\n\nWe may have opportunities in guiding, conservation, or administration!`;
+  }
+
+  // Topics we should redirect
+  const redirectTopics = [
+    ['booking', 'price', 'cost', 'reservation'],
+    ['custom', 'private', 'group tour'],
+    ['complaint', 'issue', 'problem', 'refund'],
+    ['legal', 'contract', 'insurance'],
+  ];
+
+  for (const topics of redirectTopics) {
+    if (topics.some(t => normalizedQuery.includes(t))) {
+      return `For specific inquiries about ${topics[0]}, please contact us directly:\n\n- **Email**: acharyaraj2005@gmail.com\n- **Contact Page**: Available on our website\n\nOur team will provide personalized assistance within 24 hours.`;
     }
   }
 
-  return null;
+  // Default fallback for unknown queries
+  return `I couldn't find a specific answer for that question. For further assistance:\n\n- **Email**: acharyaraj2005@gmail.com\n- **Contact Page**: Visit our website to submit an inquiry\n\nI'm here to help with questions about:\n- Completed hikes and trek info\n- Donation methods and environmental mission\n- Nepal travel advice\n- General queries\n\nPlease try rephrasing your question or reach out directly!`;
 }
