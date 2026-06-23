@@ -39,10 +39,10 @@ export function GalleryPreviewSection() {
               </p>
             </div>
             <Link to="/gallery">
-              <Button variant="outline" className="group">
-                View Full Gallery
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+             <Button variant="outline" className="group flex items-center">
+  View Full Gallery
+  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+</Button>
             </Link>
           </div>
         </ScrollReveal>

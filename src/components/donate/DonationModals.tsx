@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Copy, Check, ExternalLink } from 'lucide-react';
+import { X, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import { PaymentMethod, bankTransferDetails } from '../../config/paymentMethods';
 

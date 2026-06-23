@@ -5,9 +5,9 @@ import { ArrowRight, Mountain, Trees, Heart, Compass } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 const floatingStats = [
-  { icon: Mountain, label: '100+ Trails', value: 'Explore' },
+  { icon: Mountain, label: '5+ Hikes', value: 'Explore' },
   { icon: Trees, label: 'Eco-Certified', value: 'Green' },
-  { icon: Heart, label: '50K+ Donors', value: 'Support' },
+  { icon: Heart, label: '50+ Donors', value: 'Support' },
   { icon: Compass, label: '24/7 Guide', value: 'Assist' },
 ];
 
@@ -69,7 +69,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-300 text-sm mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-300 text-sm mt-20"
         >
           <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
           Preserving Nepal's Natural Beauty
@@ -99,25 +99,50 @@ export function HeroSection() {
           Every hike supports local communities and environmental conservation.
         </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-        >
-          <Link to="/hikes">
-            <Button size="lg" className="group">
-              Explore Hikes
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-          <Link to="/donate">
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              Support Our Mission
-            </Button>
-          </Link>
-        </motion.div>
+     {/* CTA Buttons */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.7 }}
+  className="flex flex-col items-center gap-8 mb-16"
+>
+  {/* Primary CTA */}
+  <div className="flex justify-center">
+    <Link to="/contact">
+      <Button
+        size="lg"
+        className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 text-lg flex items-center justify-center group"
+      >
+        Join Us For Upcoming Clean Hikes
+        <ArrowRight className="w-6 h-6 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+      </Button>
+    </Link>
+  </div>
+
+  {/* Secondary CTAs */}
+  <div className="flex flex-row flex-wrap justify-center gap-6">
+    <Link to="/hikes">
+      <Button
+        variant="outline"
+        size="lg"
+        className="border-white/30 text-white hover:bg-white/10 hover:text-white flex items-center group"
+      >
+        Explore Hikes
+        <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+      </Button>
+    </Link>
+
+    <Link to="/donate">
+      <Button
+        variant="outline"
+        size="lg"
+        className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+      >
+        Support Our Mission
+      </Button>
+    </Link>
+  </div>
+</motion.div>
 
         {/* Floating Stats */}
         <motion.div

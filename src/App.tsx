@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './components/ScrollToTop';
+
 import { MainLayout } from './components/layout/MainLayout';
 import { AdminLayout } from './components/admin/AdminLayout';
+
 import { HomePage } from './pages/HomePage';
 import { HikesPage } from './pages/HikesPage';
 import { HikeDetailPage } from './pages/HikeDetailPage';
@@ -9,6 +12,7 @@ import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 import { DonatePage } from './pages/DonatePage';
 import { SponsorsPage } from './pages/SponsorsPage';
+
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage';
 import { AdminMessagesPage } from './pages/admin/AdminMessagesPage';
 import { AdminDonationsPage } from './pages/admin/AdminDonationsPage';
@@ -17,6 +21,9 @@ import { AdminBookingsPage } from './pages/admin/AdminBookingsPage';
 function App() {
   return (
     <BrowserRouter>
+      {/* ✅ ADD THIS */}
+      <ScrollToTop />
+
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<MainLayout />}>

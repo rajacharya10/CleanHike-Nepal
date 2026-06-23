@@ -1,51 +1,76 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { getHikes, getHikeById, getFeaturedHikes } from '../services/api';
+import { Hike } from '../types';
 
-export function useHikes(filters?: {
+type HikeFilters = {
   difficulty?: string;
   featured?: boolean;
   search?: string;
-}) {
-  const [hikes, setHikes] = useState<any[]>([]);
+};
+
+export function useHikes(filters?: HikeFilters) {
+  const [hikes, setHikes] = useState<Hike[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
+
+  // ✅ stabilize filters to prevent infinite re-renders
+  const stableFilters = useMemo(() => {
+    return {
+      difficulty: filters?.difficulty,
+      featured: filters?.featured,
+      search: filters?.search,
+    };
+  }, [filters?.difficulty, filters?.featured, filters?.search]);
 
   useEffect(() => {
     async function fetchHikes() {
       try {
         setLoading(true);
-        const data = await getHikes(filters);
-        setHikes(data || []);
+
+        const data = await getHikes(stableFilters);
+        setHikes((data as Hike[]) || []);
       } catch (err) {
-        setError(err instanceof Error ? err : new Error('Failed to fetch hikes'));
+        setError(
+          err instanceof Error
+            ? err
+            : new Error('Failed to fetch hikes')
+        );
       } finally {
         setLoading(false);
       }
     }
+
     fetchHikes();
-  }, [filters?.difficulty, filters?.featured, filters?.search]);
+  }, [stableFilters]);
 
   return { hikes, loading, error };
 }
 
 export function useHike(id: string) {
-  const [hike, setHike] = useState<any>(null);
+  const [hike, setHike] = useState<Hike | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     async function fetchHike() {
       if (!id) return;
+
       try {
         setLoading(true);
+
         const data = await getHikeById(id);
-        setHike(data);
+        setHike((data as Hike) || null);
       } catch (err) {
-        setError(err instanceof Error ? err : new Error('Failed to fetch hike'));
+        setError(
+          err instanceof Error
+            ? err
+            : new Error('Failed to fetch hike')
+        );
       } finally {
         setLoading(false);
       }
     }
+
     fetchHike();
   }, [id]);
 
@@ -53,7 +78,7 @@ export function useHike(id: string) {
 }
 
 export function useFeaturedHikes() {
-  const [hikes, setHikes] = useState<any[]>([]);
+  const [hikes, setHikes] = useState<Hike[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -61,14 +86,20 @@ export function useFeaturedHikes() {
     async function fetchHikes() {
       try {
         setLoading(true);
+
         const data = await getFeaturedHikes();
-        setHikes(data || []);
+        setHikes((data as Hike[]) || []);
       } catch (err) {
-        setError(err instanceof Error ? err : new Error('Failed to fetch featured hikes'));
+        setError(
+          err instanceof Error
+            ? err
+            : new Error('Failed to fetch featured hikes')
+        );
       } finally {
         setLoading(false);
       }
     }
+
     fetchHikes();
   }, []);
 

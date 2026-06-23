@@ -12,10 +12,10 @@ export function DonatePage() {
   const [showBankModal, setShowBankModal] = useState(false);
 
   const stats = [
-    { icon: Users, value: '1,200+', label: 'Donors' },
-    { icon: Heart, value: '$180K', label: 'Raised' },
-    { icon: Leaf, value: '50+', label: 'Projects' },
-    { icon: Globe, value: '12', label: 'Regions' },
+    { icon: Users, value: '10+', label: 'Donors' },
+    { icon: Heart, value: '$20', label: 'Raised' },
+    { icon: Leaf, value: '5+', label: 'Projects' },
+    { icon: Globe, value: '1', label: 'Regions' },
   ];
 
   return (
@@ -60,7 +60,7 @@ export function DonatePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Stats */}
         <ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 -mt-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 -mt-0">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}

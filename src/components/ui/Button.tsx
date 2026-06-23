@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
@@ -13,7 +13,7 @@ interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'size'> {
 const variantStyles: Record<ButtonVariant, string> = {
   primary: 'bg-gradient-to-r from-emerald-500 to-green-600 text-white hover:from-emerald-600 hover:to-green-700 shadow-lg hover:shadow-emerald-500/25',
   secondary: 'bg-white/10 text-emerald-900 dark:text-white backdrop-blur-md hover:bg-white/20 border border-white/20',
-  outline: 'border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white',
+  outline: 'border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-800 hover:text-white',
   ghost: 'text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/30',
 };
 

@@ -3,20 +3,21 @@ import { Sponsor } from '../types';
 export const sponsorsData: Sponsor[] = [
   {
     id: '1',
-    name: 'Nepal Tourism Board',
-    logo: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=200',
-    website: 'https://www.welcomenepal.com',
+    name: 'Nepal Tour and Trek',
+    logo: 'https://cleanhikenepal.com/images/576/20527727/logosocial-bDsVBskhX3VtFDps2fjhpg.png',
+    website: 'https://nepaltourandtrek.com/',
     tier: 'platinum',
     description: 'Supporting sustainable tourism development in Nepal.',
   },
   {
     id: '2',
-    name: 'The North Face',
-    logo: 'https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=200',
-    website: 'https://www.thenorthface.com',
+    name: 'German Exam Nepal',
+    logo: 'https://cleanhikenepal.com/images/576/20511488/logogen-R2aApFn_dDr_gPbUHxdYAA.jpg',
+    website: 'https://germanexamnepal.com/',
     tier: 'gold',
     description: 'Premium outdoor gear for adventurers worldwide.',
   },
+  /*
   {
     id: '3',
     name: 'World Wildlife Fund',
@@ -48,7 +49,7 @@ export const sponsorsData: Sponsor[] = [
     website: '#',
     tier: 'bronze',
     description: 'Eco-friendly trekking initiatives.',
-  },
+  }, */
 ];
 
 export const getSponsorsByTier = (tier: string) =>

@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Target, Eye, Leaf, Users, ArrowRight } from 'lucide-react';
@@ -29,8 +29,7 @@ const values = [
 ];
 
 export function AboutSection() {
-  const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+const ref = useRef<HTMLElement>(null);
 
   return (
     <section ref={ref} className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden">
@@ -63,7 +62,7 @@ export function AboutSection() {
 
         {/* Mission Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {values.map((value, index) => (
+          {values.map((value) => (
             <ScrollReveal key={value.title}>
               <motion.div
                 whileHover={{ y: -8 }}
@@ -88,7 +87,7 @@ export function AboutSection() {
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-600 to-green-700">
             <div className="absolute inset-0 opacity-20">
               <img
-                src="https://images.pexels.com/photos/1321889/pexels-photo-1321889.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
                 alt="Nepal landscape"
                 className="w-full h-full object-cover"
               />
@@ -100,8 +99,8 @@ export function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <p className="text-5xl md:text-6xl font-bold mb-2">50K+</p>
-                  <p className="text-emerald-200">Happy Trekkers</p>
+                  <p className="text-5xl md:text-6xl font-bold mb-2">50+</p>
+                  <p className="text-emerald-200">Happy Hikkers</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -109,7 +108,7 @@ export function AboutSection() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
                 >
-                  <p className="text-5xl md:text-6xl font-bold mb-2">$2M+</p>
+                  <p className="text-5xl md:text-6xl font-bold mb-2">$0</p>
                   <p className="text-emerald-200">Raised for Conservation</p>
                 </motion.div>
                 <motion.div
@@ -118,8 +117,8 @@ export function AboutSection() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  <p className="text-5xl md:text-6xl font-bold mb-2">100+</p>
-                  <p className="text-emerald-200">Community Projects</p>
+                  <p className="text-5xl md:text-6xl font-bold mb-2">5+</p>
+                  <p className="text-emerald-200">Hike Projects</p>
                 </motion.div>
               </div>
             </div>
@@ -128,14 +127,21 @@ export function AboutSection() {
 
         {/* CTA */}
         <ScrollReveal>
-          <div className="text-center mt-12">
-            <Link to="/about">
-              <Button variant="outline" size="lg" className="group">
-                Learn More About Us
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
+          <div className="flex justify-center mt-12">
+  <Link to="/about">
+    <Button 
+      variant="outline" 
+      size="lg" 
+      className="btn-group flex items-center"
+    >
+      Learn More About Us
+      <ArrowRight 
+        className="w-5 h-5 ml-2 btn-group-hover:translate-x-1 transition-transform" 
+      />
+    </Button>
+  </Link>
+</div>
+
         </ScrollReveal>
       </div>
     </section>

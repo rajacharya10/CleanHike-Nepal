@@ -1,6 +1,15 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MapPin, Clock, TrendingUp, Calendar, Users, Star, ArrowLeft, Mountain, Heart, Share2 } from 'lucide-react';
+import {
+  MapPin,
+  Clock,
+  TrendingUp,
+  Calendar,
+  Users,
+  Star,
+  ArrowLeft,
+  Mountain,
+} from 'lucide-react';
 import { hikesData } from '../data/hikes';
 import { Button } from '../components/ui/Button';
 import { DifficultyBadge } from '../components/ui/Badge';
@@ -9,14 +18,16 @@ import { ScrollReveal } from '../components/common/ContainerScroll';
 export function HikeDetailPage() {
   const { id } = useParams();
 
-  const hike = hikesData.find(h => h.id === id);
+  const hike = hikesData.find((h) => h.id === id);
 
   if (!hike) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <Mountain className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Hike not found</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            Hike not found
+          </h2>
           <Link to="/hikes">
             <Button variant="outline">Back to Hikes</Button>
           </Link>
@@ -34,6 +45,7 @@ export function HikeDetailPage() {
           alt={hike.name}
           className="w-full h-full object-cover"
         />
+
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
 
         {/* Back Button */}
@@ -54,11 +66,14 @@ export function HikeDetailPage() {
                   Featured
                 </span>
               )}
+
               <DifficultyBadge difficulty={hike.difficulty} />
             </div>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
               {hike.name}
             </h1>
+
             <div className="flex items-center gap-2 text-gray-300">
               <MapPin className="w-5 h-5" />
               {hike.location}, {hike.region}
@@ -76,10 +91,26 @@ export function HikeDetailPage() {
             <ScrollReveal>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { icon: Clock, label: 'Duration', value: hike.duration },
-                  { icon: TrendingUp, label: 'Max Elevation', value: `${hike.maxElevation}m` },
-                  { icon: Users, label: 'Group Size', value: hike.groupSize },
-                  { icon: Star, label: 'Rating', value: `${hike.rating} (${hike.reviewCount})` },
+                  {
+                    icon: Clock,
+                    label: 'Duration',
+                    value: hike.duration,
+                  },
+                  {
+                    icon: TrendingUp,
+                    label: 'Max Elevation',
+                    value: `${hike.maxElevation}m`,
+                  },
+                  {
+                    icon: Users,
+                    label: 'Group Size',
+                    value: hike.groupSize,
+                  },
+                  {
+                    icon: Star,
+                    label: 'Rating',
+                    value: `${hike.rating} (${hike.reviewCount})`,
+                  },
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
@@ -89,8 +120,12 @@ export function HikeDetailPage() {
                     className="p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700"
                   >
                     <stat.icon className="w-5 h-5 text-emerald-500 mb-2" />
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{stat.label}</p>
-                    <p className="text-lg font-semibold text-gray-900 dark:text-white">{stat.value}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {stat.label}
+                    </p>
+                    <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                      {stat.value}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -99,7 +134,10 @@ export function HikeDetailPage() {
             {/* Description */}
             <ScrollReveal>
               <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">About This Trek</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  About This Trek
+                </h2>
+
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                   {hike.description}
                 </p>
@@ -109,7 +147,10 @@ export function HikeDetailPage() {
             {/* Highlights */}
             <ScrollReveal>
               <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Highlights</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  Highlights
+                </h2>
+
                 <div className="grid md:grid-cols-2 gap-4">
                   {hike.highlights.map((highlight, index) => (
                     <motion.div
@@ -121,9 +162,14 @@ export function HikeDetailPage() {
                       className="flex items-center gap-3"
                     >
                       <div className="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                        <span className="text-emerald-600 dark:text-emerald-400 text-sm font-semibold">{index + 1}</span>
+                        <span className="text-emerald-600 dark:text-emerald-400 text-sm font-semibold">
+                          {index + 1}
+                        </span>
                       </div>
-                      <span className="text-gray-700 dark:text-gray-300">{highlight}</span>
+
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {highlight}
+                      </span>
                     </motion.div>
                   ))}
                 </div>
@@ -133,7 +179,10 @@ export function HikeDetailPage() {
             {/* Best Season */}
             <ScrollReveal>
               <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Best Seasons</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  Best Seasons
+                </h2>
+
                 <div className="flex flex-wrap gap-3">
                   {hike.bestSeason.map((season) => (
                     <span
@@ -154,45 +203,55 @@ export function HikeDetailPage() {
             <ScrollReveal>
               <div className="sticky top-24 p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-lg">
                 <div className="text-center mb-6">
-                  <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">Starting from</p>
-                  <p className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">${hike.price}</p>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">per person</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">
+                    Starting from
+                  </p>
+
+                  <p className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">
+                    ${hike.price}
+                  </p>
+
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    per person
+                  </p>
                 </div>
 
-                <Button className="w-full mb-4" size="lg">
-                  Book This Trek
-                </Button>
-
-                <div className="flex gap-2">
-                  <Button variant="outline" className="flex-1" size="md">
-                    <Heart className="w-4 h-4 mr-2" />
-                    Save
+                <a
+                  href="https://nepaltourandtrek.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full mb-4" size="lg">
+                    Book This Trek
                   </Button>
-                  <Button variant="outline" className="flex-1" size="md">
-                    <Share2 className="w-4 h-4 mr-2" />
-                    Share
-                  </Button>
-                </div>
+                </a>
 
                 <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-4">What's Included</h3>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+                    What's Included
+                  </h3>
+
                   <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
                       Experienced local guide
                     </li>
+
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
                       All necessary permits
                     </li>
+
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
                       Accommodation during trek
                     </li>
+
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
                       Three meals per day
                     </li>
+
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
                       Emergency first aid kit

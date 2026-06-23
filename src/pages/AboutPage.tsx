@@ -4,25 +4,37 @@ import { ScrollReveal } from '../components/common/ContainerScroll';
 
 const team = [
   {
-    name: 'Pasang Sherpa',
+    name: 'Avib Adhikari',
     role: 'Founder & CEO',
     image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400',
     bio: 'Lifetime mountaineer with 30+ years of Himalayan experience',
   },
   {
-    name: 'Maya Tamang',
+    name: 'Umang Raj Gurung',
     role: 'Environmental Director',
     image: 'https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg?auto=compress&cs=tinysrgb&w=400',
     bio: 'Environmental scientist specializing in sustainable tourism',
   },
   {
-    name: 'Tenzin Lama',
+    name: 'Raj Acharya',
     role: 'Community Liaison',
     image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
     bio: 'Connects trekkers with authentic local experiences',
   },
   {
-    name: 'Kami Rai',
+    name: 'Alice KC ',
+    role: 'Head Guide',
+    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
+    bio: 'Led 500+ successful expeditions across Nepal',
+  },
+  {
+    name: 'Pratik Shrestha',
+    role: 'Head Guide',
+    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
+    bio: 'Led 500+ successful expeditions across Nepal',
+  },
+  {
+    name: 'Praful Gole',
     role: 'Head Guide',
     image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
     bio: 'Led 500+ successful expeditions across Nepal',
@@ -30,12 +42,12 @@ const team = [
 ];
 
 const milestones = [
-  { year: '2015', event: 'CleanHike Nepal founded in Kathmandu' },
-  { year: '2017', event: 'First trail cleanup program launched' },
-  { year: '2019', event: 'Reached 10,000 trekkers milestone' },
-  { year: '2021', event: 'Partnership with Nepal Tourism Board' },
-  { year: '2023', event: '50 community projects completed' },
-  { year: '2024', event: 'Expanded to 12 trekking regions' },
+  { year: '2025 October', event: 'CleanHike Nepal founded' },
+  { year: '2026 Febrauray 28', event: 'First trail cleanup program launched' },
+  { year: '2026 March 1', event: 'Partnership with German Exam Nepal' },
+  { year: '2026 March 20', event: 'Partnership with Nepal Tour and Trek' },
+  { year: '2026 June 20', event: '5+ clean hike projects completed' },
+  //{ year: '2024', event: 'Expanded to 12 trekking regions' },//
 ];
 
 export function AboutPage() {
@@ -58,7 +70,7 @@ export function AboutPage() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-emerald-300 text-sm mb-6"
           >
             <Leaf className="w-4 h-4" />
-            Since 2015
+            Since 2025
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -119,7 +131,7 @@ export function AboutPage() {
             { icon: Users, title: 'Community', desc: 'Empowering local economies and cultures' },
             { icon: Award, title: 'Excellence', desc: 'Uncompromising quality and safety standards' },
             { icon: Globe, title: 'Global Impact', desc: 'Inspiring sustainable tourism worldwide' },
-          ].map((value, index) => (
+          ].map((value) => (
             <ScrollReveal key={value.title}>
               <motion.div
                 whileHover={{ y: -5 }}
@@ -182,7 +194,7 @@ export function AboutPage() {
         </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, index) => (
+          {team.map((member) => (
             <ScrollReveal key={member.name}>
               <motion.div
                 whileHover={{ y: -10 }}

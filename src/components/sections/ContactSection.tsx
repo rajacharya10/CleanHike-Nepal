@@ -22,7 +22,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Visit Us',
-    content: 'Thamel, Kathmandu, Nepal',
+    content: 'Dakshinkali, Kathmandu, Nepal',
     link: '#',
   },
   {
@@ -58,16 +58,20 @@ export function ContactSection() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    try {
-      setSubmitStatus('idle');
-      await submitContactForm(data);
-      setSubmitStatus('success');
-      reset();
-    } catch (error) {
-      console.error('Failed to submit contact form:', error);
-      setSubmitStatus('error');
-    }
-  };
+  try {
+    setSubmitStatus('idle');
+
+    await submitContactForm(data);
+
+    setSubmitStatus('success');
+
+    reset();
+  } catch (error) {
+    console.error(error);
+
+    setSubmitStatus('error');
+  }
+};
 
   return (
     <section className="py-24 bg-gray-50 dark:bg-gray-950 relative overflow-hidden">

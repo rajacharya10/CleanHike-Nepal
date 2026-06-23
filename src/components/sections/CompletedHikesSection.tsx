@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+
 import { Link } from 'react-router-dom';
 import { ArrowRight, Filter, CheckCircle } from 'lucide-react';
 import { completedHikes } from '../../data/completedHikes';
 import { CompletedHikeCard } from '../cards/CompletedHikeCard';
+
 import { Button } from '../ui/Button';
 import { ScrollReveal } from '../common/ContainerScroll';
 
@@ -76,7 +77,7 @@ export function CompletedHikesSection() {
         {filteredHikes.length === 0 ? (
           <div className="text-center py-16">
             <Filter className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No hikes found</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Will be doing soon...</h3>
             <p className="text-gray-500 dark:text-gray-400">Try a different difficulty filter</p>
           </div>
         ) : (
@@ -89,18 +90,24 @@ export function CompletedHikesSection() {
 
         {/* View All CTA */}
         <ScrollReveal>
-          <div className="text-center mt-12">
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Ready to join our next adventure?
-            </p>
-            <Link to="/contact">
-              <Button variant="outline" className="group">
-                Contact Us for Upcoming Treks
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
-        </ScrollReveal>
+  <div className="flex flex-col items-center mt-12">
+    <p className="text-gray-600 dark:text-gray-400 mb-4">
+      Ready to join our next adventure?
+    </p>
+    <Link to="/contact">
+      <Button 
+        variant="outline" 
+        className="btn-group flex items-center justify-center"
+      >
+        Contact Us for Upcoming Clean Hike Programs
+        <ArrowRight 
+          className="w-5 h-5 ml-2 btn-group-hover:translate-x-1 transition-transform" 
+        />
+      </Button>
+    </Link>
+  </div>
+</ScrollReveal>
+
       </div>
     </section>
   );

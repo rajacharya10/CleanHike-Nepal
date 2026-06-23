@@ -83,7 +83,7 @@ export function EnvironmentalMissionSection() {
 
         {/* Feature Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {environmentalFeatures.map((feature, index) => (
+          {environmentalFeatures.map((feature) => (
             <ScrollReveal key={feature.title}>
               <motion.div
                 whileHover={{ y: -8 }}
@@ -105,19 +105,22 @@ export function EnvironmentalMissionSection() {
 
         {/* CTA */}
         <ScrollReveal>
-          <div className="text-center">
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Join us in protecting Nepal's natural beauty
-            </p>
-            <Link to="/donate">
-              <Button className="group" size="lg">
-                <Heart className="w-5 h-5 mr-2" />
-                Support Our Mission
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
-        </ScrollReveal>
+  <div className="flex flex-col items-center mt-12">
+    <p className="text-gray-600 dark:text-gray-400 mb-6">
+      Join us in protecting Nepal's natural beauty
+    </p>
+    <Link to="/donate">
+      <Button className="btn-group flex items-center justify-center" size="lg">
+        <Heart className="w-5 h-5 mr-2" />
+        Support Our Mission
+        <ArrowRight 
+          className="w-5 h-5 ml-2 btn-group-hover:translate-x-1 transition-transform" 
+        />
+      </Button>
+    </Link>
+  </div>
+</ScrollReveal>
+
       </div>
     </section>
   );
