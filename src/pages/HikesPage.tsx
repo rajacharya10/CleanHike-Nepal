@@ -53,20 +53,32 @@ export function HikesPage() {
         </div>
         <div className="relative z-10 text-center px-4">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-          >
-            Explore Nepal's Trails
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-300 text-lg max-w-2xl mx-auto"
-          >
-            Discover curated hiking experiences from day trips to epic multi-day adventures
-          </motion.p>
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-5xl font-bold text-white mb-4"
+        >
+        Explore Nepal's Trails
+        </motion.h1>
+        <p className="text-gray-200" >
+        with {""} 
+        </p>
+        <a
+        href="https://nepaltourandtrek.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white underline hover:text-gray-300 transition"
+        >
+        Nepal Tour and Trek
+        </a>
+
+<motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.1 }}
+  className="text-gray-300 text-lg max-w-2xl mx-auto"
+>
+  Discover curated hiking experiences from day trips to epic multi-day adventures
+</motion.p>
         </div>
       </div>
 

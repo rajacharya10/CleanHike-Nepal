@@ -6,7 +6,7 @@ const quickLinks = [
   { name: 'All Hikes', path: '/hikes' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'About', path: '/about' },
-  { name: 'Challenging Treks', path: '/hikes?difficulty=challenging' },
+  //{ name: 'Challenging Treks', path: '/hikes?difficulty=challenging' },
 ];
 
 const supportLinks = [
