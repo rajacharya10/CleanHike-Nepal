@@ -27,7 +27,7 @@ export function GalleryPage() {
       <div className="relative h-64 flex items-center justify-center mb-12">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/1421909/pexels-photo-1421909.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
             alt="Nepal landscape"
             className="w-full h-full object-cover"
           />

@@ -10,7 +10,7 @@ export const galleryData: GalleryImage[] = [
   },
   {
     id: '2',
-    src: 'https://images.pexels.com/photos/1321889/pexels-photo-1321889.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREvvTxhLBnGfOVyYSWhtBX_K2uvwKbjHNKyA&s',
     alt: 'Annapurna mountain range at sunrise',
     category: 'nature',
     location: 'Annapurna',
@@ -24,7 +24,7 @@ export const galleryData: GalleryImage[] = [
   },
   {
     id: '4',
-    src: 'https://images.pexels.com/photos/1421909/pexels-photo-1421909.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    src: 'https://images.squarespace-cdn.com/content/v1/5a87961cbe42d637c54cab93/1609405879022-E23KK2NRPVKMSFV1C3XR/crossing-thorong-la-pass-annapurna-circuit.jpg?format=500w',
     alt: 'Prayer flags on mountain pass',
     category: 'nature',
     location: 'Thorong La',
